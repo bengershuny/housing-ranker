@@ -37,9 +37,14 @@ public class RoomsCSVParser {
 	public Room roomFromRow(List<String> row) {
 		String buildingName = parseBuildingName(row.get(0));
 		String roomNum = parseRoomNumber(row.get(0));
+		
 		int sqft = Integer.parseInt(row.get(1));
 		int occ = Integer.parseInt(row.get(2));
-		return new Room(roomNum, buildingName, sqft, occ);
+		
+		double qual = Double.parseDouble(row.get(3));
+		double floorplan = Double.parseDouble(row.get(4));
+		
+		return new Room(roomNum, buildingName, sqft, occ, qual, floorplan);
 	}
 	
 	public static List<String> parseLine(String line) {
